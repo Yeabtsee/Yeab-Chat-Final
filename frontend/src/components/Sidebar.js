@@ -83,7 +83,7 @@ const Sidebar = ({
       return;
     }
     try {
-      const response = await fetch(`http://localhost:5000/api/search/${query}`);
+      const response = await fetch(`/api/search/${query}`);
       const result = await response.json();
       setSearchResult(result);
     } catch (error) {
@@ -123,7 +123,7 @@ const Sidebar = ({
   const handleSearchedSelectUser = async (user) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/conversations/${username}/${user.username}`
+        `/api/conversations/${username}/${user.username}`
       );
       const conversation = await response.json();
       resetUnreadCount(user.username);

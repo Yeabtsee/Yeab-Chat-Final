@@ -83,7 +83,7 @@ const ChatArea = ({
       });
   
       // Send to server and socket
-      await fetch("http://localhost:5000/api/conversations", {
+      await fetch("/api/conversations", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

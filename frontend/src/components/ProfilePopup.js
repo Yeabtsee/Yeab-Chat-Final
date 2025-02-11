@@ -5,7 +5,7 @@ const ProfilePopup = ({ username, userProfile, setUserProfile, onClose,onLogout 
   const handleProfileUpdate = async () => {
     console.log("Debug: updating profile", userProfile);
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${username}`, {
+      const response = await fetch(`/api/users/${username}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(userProfile),
@@ -30,7 +30,7 @@ const ProfilePopup = ({ username, userProfile, setUserProfile, onClose,onLogout 
     console.log("Debug: Uploading avatar", file);
     console.log("Debug: Form data", formData);
     try {
-      const response = await fetch(`http://localhost:5000/api/users/${username}/upload-avatar`, {
+      const response = await fetch(`/api/users/${username}/upload-avatar`, {
         method: "POST",
         body: formData,
       });

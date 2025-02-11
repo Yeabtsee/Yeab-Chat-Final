@@ -47,7 +47,7 @@ mongoose.connection.on('error', (err) => {
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3000', // Your frontend URL
+    origin: 'https://yeab-chat.onrender.com', // Your frontend URL
     methods: ['GET', 'POST'],
   },
 });

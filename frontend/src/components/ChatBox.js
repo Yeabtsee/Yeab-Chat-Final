@@ -46,7 +46,7 @@ const ChatBox = ({ username, onLogout }) => {
   useEffect(()=>{
     const fetchUserProfile = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/${username}`);
+        const response = await fetch(`/api/users/${username}`);
         const profileData = await response.json();
         setUserProfile(profileData);
       } catch (error) {
@@ -57,7 +57,7 @@ const ChatBox = ({ username, onLogout }) => {
   },[username])
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/users/profiles')
+    fetch('/api/users/profiles')
       .then((res) => res.json())
       .then((data) => setProfiles(data))
       .catch((err) => console.error('Error fetching users:', err));
@@ -66,7 +66,7 @@ const ChatBox = ({ username, onLogout }) => {
   useEffect(() => {
     const fetchConversations = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/conversations/${username}`);
+        const response = await fetch(`/api/conversations/${username}`);
         const result = await response.json();
         setUsers(Array.isArray(result) ? result : []);
       } catch (error) {

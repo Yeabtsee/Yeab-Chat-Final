@@ -85,7 +85,7 @@ const Login = ({ onLoginSuccess }) => {
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/users/forgot-password", {
+      const response = await fetch("/api/users/forgot-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: resetEmail }),
@@ -111,7 +111,7 @@ const Login = ({ onLoginSuccess }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/users/reset-password", {
+      const response = await fetch("/api/users/reset-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -137,8 +137,8 @@ const Login = ({ onLoginSuccess }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = isRegister
-      ? "http://localhost:5000/api/users/register"
-      : "http://localhost:5000/api/users/login";
+      ? "/api/users/register"
+      : "/api/users/login";
 
     try {
       const response = await fetch(url, {
@@ -153,7 +153,7 @@ const Login = ({ onLoginSuccess }) => {
       if (response.ok) {
         if (isRegister) {
           // Auto-login after registration
-          const loginResponse = await fetch("http://localhost:5000/api/users/login", {
+          const loginResponse = await fetch("/api/users/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ username, password }),
