@@ -17,7 +17,6 @@ export const updateAvatar = async (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: "No file uploaded" });
   }
-  console.log(req);
   try {
     // Upload to Cloudinary
     const result = await cloudinary.uploader.upload(req.file.path, {
