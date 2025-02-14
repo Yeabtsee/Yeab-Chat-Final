@@ -54,7 +54,7 @@ const ChatArea = ({
         const formData = new FormData();
         formData.append("image", imageFile);
 
-        const uploadResponse = await fetch("/conversations/upload-image", {
+        const uploadResponse = await fetch("/api/conversations/upload-image", {
           method: "POST",
           body: formData,
         });
@@ -103,7 +103,7 @@ const ChatArea = ({
       });
 
       // Send the message data to your server
-      await fetch("/conversations", {
+      await fetch("/api/conversations", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
