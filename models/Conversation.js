@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const messageSchema = new mongoose.Schema({
   sender: { type: String, required: true },
-  text: { type: String, required: true },
+  text: { type: String },
   timestamp: { type: Date, default: Date.now },
   status: { type: String, default: "sent" },
   imageUrl: { type: String },
